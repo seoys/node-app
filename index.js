@@ -1,14 +1,26 @@
-//importing node framework
-var express = require("express");
+var supertest = require("supertest");
+var should = require("should");
 
-var app = express();
+// This agent refers to PORT where the program is running.
 
-//Respond with "hello world" for requests that hit our root "/"
-app.get("/", function (req, res) {
- res.send("hello world");
+var server = supertest.agent("http://localhost:4000");
+
+// UNIT test begin
+
+describe("SAMPLE unit test",function(){
+
+  // #1 should return home page
+  it("should return home page",function(done){
+    // calling home page
+    server
+    .get("/")
+    .expect("Content-type",/text/)
+    .expect(200) // THis is HTTP response
+    .end(function(err,res){
+      // HTTP status should be 200
+      res.status.should.equal(200);
+      done();
+    });
+  });
+
 });
-
-//listen to port 3000 by default
-app.listen(process.env.PORT || 3000);
-
-module.exports = app;
