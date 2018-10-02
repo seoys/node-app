@@ -1,7 +1,23 @@
-var request = require('supertest');
+describe('name', function() {
+  before(function() {
+    // excuted before test suite
+  });
 
-describe('Test suit', function () {
-  it('should be ok', function () {
-    assert.equal(true, false);
+  after(function() {
+    // excuted after test suite
+  });
+
+  beforeEach(function() {
+    // excuted before every test
+  });
+
+  afterEach(function() {
+    // excuted after every test
+  });
+
+  describe('#example', function() {
+    it('this is a test.', function() {
+      // write test logic
+    });
   });
 });
