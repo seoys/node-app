@@ -6,4 +6,4 @@
  npm install — production
  pm2 restart all
  exit
-EOFd
+EOF
